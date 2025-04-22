@@ -60,19 +60,6 @@ class MainMenuPanel extends JPanel {
 }
 
 
-class GatheringPanel extends JPanel {
-    public GatheringPanel(GameFrame frame) {
-        setLayout(new BorderLayout());
-
-        JLabel label = new JLabel("Gathering Screen - Resource gathering automation coming soon", SwingConstants.CENTER);
-        JButton backButton = new JButton("Back to Main Menu");
-        backButton.addActionListener(e -> frame.switchPanel("MainMenu"));
-
-        add(label, BorderLayout.CENTER);
-        add(backButton, BorderLayout.SOUTH);
-    }
-}
-
 class CraftingPanel extends JPanel {
     public CraftingPanel(GameFrame frame) {
         setLayout(new BorderLayout());

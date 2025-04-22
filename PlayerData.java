@@ -6,6 +6,9 @@ public class PlayerData {
     public int attack = 10;
     public int experience = 0;
     public int gold = 0;
+    public int wood = 0;
+    public int fish = 0;
+    public int ore = 0;
 
     private static final String SAVE_FILE = "player_data.properties";
 
@@ -16,6 +19,9 @@ public class PlayerData {
             props.setProperty("attack", String.valueOf(attack));
             props.setProperty("experience", String.valueOf(experience));
             props.setProperty("gold", String.valueOf(gold));
+            props.setProperty("wood", String.valueOf(wood));
+            props.setProperty("fish", String.valueOf(fish));
+            props.setProperty("ore", String.valueOf(ore));
             props.store(out, "Player Data Saved");
         } catch (IOException e) {
             e.printStackTrace();
@@ -25,11 +31,13 @@ public class PlayerData {
     public void loadFromFile() {
         try (FileInputStream in = new FileInputStream(SAVE_FILE)) {
             Properties props = new Properties();
-            props.load(in);
             health = Integer.parseInt(props.getProperty("health", "100"));
             attack = Integer.parseInt(props.getProperty("attack", "10"));
             experience = Integer.parseInt(props.getProperty("experience", "0"));
             gold = Integer.parseInt(props.getProperty("gold", "0"));
+            wood = Integer.parseInt(props.getProperty("wood", "0"));
+            fish = Integer.parseInt(props.getProperty("fish", "0"));
+            ore = Integer.parseInt(props.getProperty("ore", "0"));
         } catch (IOException e) {
             System.out.println("No save file found. Starting fresh.");
         }
